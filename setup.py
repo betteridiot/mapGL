@@ -18,7 +18,7 @@ setup(
     long_description_content_type = "text/markdown",
     url = "https://github.com/adadiehl/mapGL",
     packages = find_packages(),
-    
+    install_requires = ['numpy'],
     
     # It is better to provide the *.c files that are
     # constructed on the build system instead of *.pyx
@@ -40,5 +40,5 @@ setup(
     ],
     keywords = "words about your project",
     include_package_data = True,
-    # zip_safe = False,
+    zip_safe = False,
 )
