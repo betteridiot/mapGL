@@ -25,9 +25,12 @@ setup(
     url = "https://github.com/adadiehl/mapGL",
     packages = setuptools.find_packages(),
     classifiers = [
+        "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
         "Programming Language :: Cython",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        "Intended Audience :: Science/Research",
+        "Natural Language :: English"
     ],
 )
