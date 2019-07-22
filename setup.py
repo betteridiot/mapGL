@@ -1,9 +1,5 @@
 from pathlib import PurePath
-from setuptools import setup, find_packages
-
-# Use setuptools instead of distutils because it preferentially ignores pyx files
-# opting to use .c files instead
-from setuptools.extension import Extension
+from setuptools import setup, find_packages, Extension
 
     
 def readme():
