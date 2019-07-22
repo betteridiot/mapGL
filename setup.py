@@ -1,5 +1,9 @@
 from os import path
-from setuptools import setup
+from setuptools import setup, find_packages
+
+# Use setuptools instead of distutils because it preferentially ignores pyx files
+# opting to use .c files instead
+from setuptools.extension import Extension
 
 
 def version_info():
@@ -20,10 +24,10 @@ setup(
     author = "Adam Diehl",
     author_email = "adadiehl@umich.edu",
     description = "Prediction of lineage-specific gain and loss of sequence elements using phylogenetic maximum parsimony.",
-    long_description = readme(), # https://packaging.python.org/guides/making-a-pypi-friendly-readme/#including-your-readme-in-your-package-s-metadata
+    long_description = readme(),
     long_description_content_type = "text/markdown",
     url = "https://github.com/adadiehl/mapGL",
-    packages = setuptools.find_packages(),
+    packages = find_packages(),
     classifiers = [
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
@@ -31,6 +35,8 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Scientific/Engineering :: Information Analysis",
         "Natural Language :: English"
     ],
 )
