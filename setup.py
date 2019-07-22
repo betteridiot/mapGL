@@ -39,4 +39,7 @@ setup(
         "Topic :: Scientific/Engineering :: Information Analysis",
         "Natural Language :: English"
     ],
+    keywords = "words about your project",
+    include_package_data = True,
+    zip_safe = False,
 )
