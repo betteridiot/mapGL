@@ -1,26 +1,19 @@
-from os import path
+from pathlib import PurePath
 from setuptools import setup, find_packages
 
 # Use setuptools instead of distutils because it preferentially ignores pyx files
 # opting to use .c files instead
 from setuptools.extension import Extension
 
-
-def version_info():
-    here = path.abspath(path.dirname(__file__))
-    with open(path.join(here, 'version'), encoding = 'utf-8') as vers:
-        return vers.read().strip()
-
     
 def readme():
-    here = path.abspath(path.dirname(__file__))
-    with open(path.join(here, 'README.md'), encoding='utf-8') as md:
+    with open(PurePath(__file__).parent.absolute() / 'README.md'), encoding='utf-8') as md:
         return md.read()
 
     
 setup(
     name = "mapGL",
-    version = version_info(),
+    version = "0.0.1",
     author = "Adam Diehl",
     author_email = "adadiehl@umich.edu",
     description = "Prediction of lineage-specific gain and loss of sequence elements using phylogenetic maximum parsimony.",
