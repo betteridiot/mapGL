@@ -18,6 +18,12 @@ setup(
     long_description_content_type = "text/markdown",
     url = "https://github.com/adadiehl/mapGL",
     packages = find_packages(),
+    package_data = {
+        'mapGL': [
+            "LICENSE",
+            "CODE_OF_CONDUCT.md"
+        ]
+    },
     install_requires = ['numpy'],
     
     # It is better to provide the *.c files that are
