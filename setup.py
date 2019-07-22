@@ -1,5 +1,6 @@
 from pathlib import PurePath
 from setuptools import setup, find_packages, Extension
+import numpy as np
 
     
 def readme():
@@ -17,6 +18,15 @@ setup(
     long_description_content_type = "text/markdown",
     url = "https://github.com/adadiehl/mapGL",
     packages = find_packages(),
+    
+    
+    # It is better to provide the *.c files that are
+    # constructed on the build system instead of *.pyx
+    # files. This is because you don't want to assume that
+    # the end-user has Cython or wants to use Cython to
+    # build your package. http://docs.cython.org/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules 
+    ext_modules = [Extension("*", ["*.c"])], # Use globs here to capture all your .c files
+    include_dirs = [np.get_include()]
     classifiers = [
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
