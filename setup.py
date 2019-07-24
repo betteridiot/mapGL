@@ -1,10 +1,8 @@
-from pathlib import PurePath
-from setuptools import setup, find_packages, Extension
-import numpy as np
-
+from pathlib import Path
+from setuptools import setup, find_packages
     
 def readme():
-    with open(PurePath(__file__).parent.absolute() / 'README.md'), encoding='utf-8') as md:
+    with open(PurePath(__file__).parent.reduce() / 'README.md'), encoding='utf-8') as md:
         return md.read()
 
     
@@ -24,15 +22,7 @@ setup(
             "CODE_OF_CONDUCT.md"
         ]
     },
-    install_requires = ['numpy'],
-    
-    # It is better to provide the *.c files that are
-    # constructed on the build system instead of *.pyx
-    # files. This is because you don't want to assume that
-    # the end-user has Cython or wants to use Cython to
-    # build your package. http://docs.cython.org/en/latest/src/userguide/source_files_and_compilation.html#distributing-cython-modules 
-    ext_modules = [Extension("*", ["*.c"])], # Use globs here to capture all your .c files
-    include_dirs = [np.get_include()]
+    install_requires = ['numpy', 'cython', 'bx-python'],
     classifiers = [
         "Development Status :: 4 - Beta",
         "Programming Language :: Python :: 3",
